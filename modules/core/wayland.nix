@@ -1,0 +1,21 @@
+{ pkgs, ... }:
+{
+  programs.hyprland = {
+    enable = true;
+    xwayland.enable = true;
+  };
+
+  xdg.portal = {
+    enable = true;
+
+    config = {
+      common.default = [ "gtk" ];
+      hyprland.default = [
+        "gtk"
+        "hyprland"
+      ];
+    };
+
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  };
+}
