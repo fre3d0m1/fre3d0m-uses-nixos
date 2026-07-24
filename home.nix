@@ -1,7 +1,4 @@
 { config, pkgs, ... }:
-  let
- 	myEmail = builtins.readFile "/home/fre3d0m/.secrets/email";
-  in
 
 {
   home.username = "fre3d0m";
@@ -77,10 +74,6 @@
 
   programs.git = {
 	enable = true;
-	settings.fre3d0m = {
-		email = myEmail;
-		name = "fre3d0m1";
-	};
   };
 
   services.swaync.enable = true;
