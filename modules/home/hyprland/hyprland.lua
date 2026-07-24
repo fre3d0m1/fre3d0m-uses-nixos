@@ -33,7 +33,7 @@ hl.monitor({
 
 -- Set programs that you use
 local terminal = "alacritty"
-local fileManager = "dolphin"
+local fileManager = "nemo"
 local menu = "hyprlauncher"
 local rofi = "rofi -show drun"
 
@@ -61,6 +61,8 @@ end)
 
 hl.env("HYPRCURSOR_THEME", "catppuccin-mocha-sky-cursors")
 hl.env("HYPRCURSOR_SIZE", "24")
+hl.env("XCURSOR_THEME", "catppuccin-mocha-sky-cursors")
+hl.env("XCURSOR_SIZE", "24")
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 
