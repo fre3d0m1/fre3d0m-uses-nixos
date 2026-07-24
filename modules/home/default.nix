@@ -18,5 +18,6 @@
         ./telegram.nix
         ./tree.nix
         ./waybar
+        ./kitty.nix
     ];
 }

@@ -18,6 +18,7 @@
 		pyright
 		nil
 		lua-language-server
+		ripgrep
 	];
 
 	plugins = with pkgs.vimPlugins; [
