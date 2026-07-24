@@ -19,5 +19,6 @@
         ./tree.nix
         ./waybar
         ./kitty.nix
+        ./utilities.nix
     ];
 }
