@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+  let
+ 	myEmail = builtins.readFile "/home/fre3d0m/.secrets/email";
+  in
 
 {
   home.username = "fre3d0m";
@@ -30,6 +33,13 @@
 		};
 	};
   };
+  
+  programs.gh = {
+	enable = true;
+	gitCredentialHelper = {
+		enable = true;
+	};
+  };
 
   programs.neovim = {
 	enable = true;
@@ -41,15 +51,36 @@
 	extraLuaConfig = ''
 		${builtins.readFile ./nvim/init.lua}
 	'';
+	
+	extraPackages = with pkgs; [
+		stylua
+		ruff
+		black
+		pyright
+		nil
+	];
 
-	plugins = [
-		
+	plugins = with pkgs.vimPlugins; [
+		(nvim-treesitter.withPlugins (p: [
+			p.nix
+			p.vim
+			p.python
+			p.rust
+			p.lua
+			p.gdscript
+			p.gdshader
+			p.godot-resource
+		]))
 	];
   };
+  
 
   programs.git = {
 	enable = true;
-	lfs.enable = true;
+	settings.fre3d0m = {
+		email = myEmail;
+		name = "fre3d0m1";
+	};
   };
 
   services.swaync.enable = true;

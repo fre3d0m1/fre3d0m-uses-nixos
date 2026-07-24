@@ -176,7 +176,6 @@
     tree
     hyprshot
     bubblewrap
-    gh
   ];
 
   fonts.packages = with pkgs; [
