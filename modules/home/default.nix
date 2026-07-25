@@ -20,5 +20,6 @@
         ./waybar
         ./kitty.nix
         ./utilities.nix
+        ./nemo.nix
     ];
 }
