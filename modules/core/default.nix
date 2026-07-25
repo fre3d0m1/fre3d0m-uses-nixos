@@ -14,5 +14,6 @@
         ./user.nix
         ./wayland.nix
         ./xserver.nix
+        ./nix-ld.nix
     ];
 }

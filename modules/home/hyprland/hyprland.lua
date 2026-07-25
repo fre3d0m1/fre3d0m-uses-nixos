@@ -25,6 +25,7 @@ hl.monitor({
 	position = "auto",
 	scale = "auto",
 	vrr = 1,
+	{ bitdepth = 10, cm = "hdr" })
 })
 
 ---------------------
@@ -143,6 +144,8 @@ hl.config({
 
 	render = {
 		direct_scanout = false,
+		cm_fs_passthrough = 0,
+		cm_auto_hdr = 2
 	},
 })
 
