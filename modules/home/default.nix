@@ -21,5 +21,6 @@
         ./kitty.nix
         ./utilities.nix
         ./nemo.nix
+        ./amberol.nix
     ];
 }

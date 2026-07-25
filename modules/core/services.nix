@@ -18,9 +18,12 @@
           server.port = 6742; 
         };
     };
+    
 
+    # OpenRGB
     boot.kernelModules = [ "i2c-dev" "i2c-piix4" ];
 
     hardware.i2c.enable = true;
     users.users.fre3d0m.extraGroups = [ "i2c" ];
+
 }
