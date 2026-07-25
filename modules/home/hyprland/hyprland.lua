@@ -22,10 +22,13 @@
 hl.monitor({
 	output = "DP-1",
 	mode = "2560x1440@180",
-	position = "auto",
-	scale = "auto",
+	position = "0x0",
+	scale = "1",
 	vrr = 1,
-	{ bitdepth = 10, cm = "hdr" })
+	bitdepth = 10,
+	cm = "hdr",
+	sdrbrightness = 5,
+	sdrsaturation = 1.2,
 })
 
 ---------------------
@@ -144,8 +147,6 @@ hl.config({
 
 	render = {
 		direct_scanout = false,
-		cm_fs_passthrough = 0,
-		cm_auto_hdr = 2
 	},
 })
 
