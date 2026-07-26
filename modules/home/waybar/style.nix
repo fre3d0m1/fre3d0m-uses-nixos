@@ -19,85 +19,123 @@ let
     opacity = "1";
     indicator_height = "2px";
     transparent_opacity = "0.65";
+    white = "#f7f9f9";
+    black = "#212121";
   };
 in
 {
   programs.waybar.style = with custom; ''
     * {
-      border: none;
-      border-radius: 0px;
-      padding: 0;
-      margin: 0;
-      font-family: ${font};
-      font-weight: ${font_weight};
-      opacity: ${opacity};
-      font-size: ${font_size};
+      /* General taskbar font, I like maple mono ^-^*/
+      font-family: Maple Mono;
+      border-radius: 8;
+      font-size: 15px;
+      padding: 0px;
+      background: transparent;
     }
 
     window#waybar {
-      background: ${background_1};
-      opacity: ${transparent_opacity};
+      /* Linear gradients are used because it makes less harsh rounded border radius, gtk bug :p */
+      background-image: linear-gradient(to bottom, #141216 100%);
+      border-radius: 14px;
+      padding: 0px;
+      border-style: none;
     }
 
-    tooltip {
-      background: ${background_1};
-      opacity: ${transparent_opacity};
-    }
-    tooltip label {
-      margin: 5px;
-      color: ${text_color};
-    }
+    #battery,
+    #network,
+    #clock,
+    #custom-applauncher,
+    #tray,
+    #workspaces,
+    #pulseaudio {
+      background-image: linear-gradient(to bottom, #27232b 100%);
 
-    #workspaces {
-      padding-left: 15px;
-    }
-    #workspaces button {
-      color: ${blue};
-      padding-left:  5px;
-      padding-right: 5px;
-      margin-right: 10px;
-    }
-    #workspaces button.empty {
-      color: ${text_color};
-    }
-    #workspaces button.active {
-      color: ${cyan};
+      margin: 6px;
+      margin-right: 0px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      color: ${white};
+
+      border-style: none;
+      transition-duration: 120ms;
     }
 
     #clock {
-      color: ${text_color};
+      margin-right: 6px;
     }
 
-    #tray {
-      margin-left: 10px;
-      color: ${text_color};
-    }
-    #tray menu {
-      background: ${background_1};
-      padding: 8px;
-    }
-    #tray menuitem {
-      padding: 1px;
+    #pulseaudio:hover {
+      background-image: linear-gradient(to bottom, #ac82e9 100%);
+      color: #141216;
+      transition-duration: 120ms;
     }
 
-    #pulseaudio, #network, #cpu, #memory, #disk, #battery, #language, #custom-notification, #custom-power-menu {
-      padding-left: 6px;
-      padding-right: 6px;
-      margin-left: 5px;
-      margin-right: 5px;
-      color: ${text_color};
-    }
-
-    #network {
-      margin-right: -2px;
-    }
-
-    #custom-launcher {
-      font-size: 20px;
-      color: ${text_color};
+    #custom-applauncher {
       font-weight: bold;
-      margin-left: 15px;
-      padding-right: 10px;
+      transition-duration: 120ms;
+    }
+    #custom-applauncher:hover {
+      background-image: linear-gradient(to bottom, #ac82e9 100%);
+      color: #141216;
+      transition-duration: 120ms;
+    }
+
+    #tray menu {
+      background-color: #141216;
+      color: #d8cab8;
+      padding: 4px;
+    }
+    #tray menu menuitem {
+      background-image: linear-gradient(to bottom, #27232b 100%);
+
+      margin: 3px;
+      color: #d8cab8;
+      border-radius: 4px;
+      border-style: solid;
+      border-color: #27232b;
+    }
+    #tray menu menuitem:hover {
+      background-image: linear-gradient(to bottom, #27232b 100%);
+      color: #ac82e9;
+      font-weight: bold;
+    }
+
+    #workspaces button {
+      transition-duration: 100ms;
+      all: initial;
+      min-width: 0;
+      font-weight: bold;
+      color: #3d3d3d;
+      margin-right: 0.2cm;
+      margin-left: 0.2cm;
+    }
+
+    #workspaces button:hover {
+      transition-duration: 120ms;
+      color: ${white};
+    }
+    #workspaces button.focused {
+      color: ${white};
+      font-weight: bold;
+    }
+    #workspaces button.active {
+      color: ${white};
+      font-weight: bold;
+    }
+    #workspaces button.urgent {
+      color: ${white};
+    }
+
+    #battery {
+      background-color: #222222;
+      color: #1d2021;
+    }
+    #battery.warning,
+    #battery.critical,
+    #battery.urgent {
+      color: #1d2021;
+      background-color: #fc4649;
     }
   '';
 }

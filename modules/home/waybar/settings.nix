@@ -24,26 +24,19 @@ in
     position = "top";
     layer = "top";
     height = 28;
-    margin-top = 0;
+    margin-top = 15;
     margin-bottom = 0;
-    margin-left = 0;
-    margin-right = 0;
+    margin-left = 500;
+    margin-right = 500;
     modules-left = [
-      "custom/launcher"
       "hyprland/workspaces"
-      "tray"
     ];
     modules-center = [ "clock" ];
     modules-right = [
-      "cpu"
-      "memory"
-      # "disk"
-      "pulseaudio"
       "network"
       "battery"
-      "hyprland/language"
-      "custom/notification"
-      "custom/power-menu"
+      "pulseaudio"
+      "tray"
     ];
     clock = {
       calendar = {
@@ -75,44 +68,30 @@ in
         sort-by-number = true;
       };
     };
-    cpu = {
-      format = "<span foreground='${green}'> </span> {usage}%";
-      format-alt = "<span foreground='${green}'> </span> {avg_frequency} GHz";
-      interval = 2;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
-    };
-    memory = {
-      format = "<span foreground='${cyan}'>󰟜 </span>{}%";
-      format-alt = "<span foreground='${cyan}'>󰟜 </span>{used} GiB"; # 
-      interval = 2;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
-    };
-    disk = {
-      # path = "/";
-      format = "<span foreground='${orange}'>󰋊 </span>{percentage_used}%";
-      interval = 60;
-      on-click-right = "hyprctl dispatch exec '[float; center; size 950 650] kitty --override font_size=14 --title float_kitty btop'";
-    };
     network = {
-      format-wifi = "<span foreground='${magenta}'> </span> {signalStrength}%";
-      format-ethernet = "<span foreground='${magenta}'>󰀂 </span>";
-      tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
-      format-linked = "{ifname} (No IP)";
-      format-disconnected = "<span foreground='${magenta}'>󰖪 </span>";
+      format-wifi = "  {bandwidthDownBits}";
+      format-ethernet = "  {bandwidthDownBits}";
+      format-disconnected = "󰤮  No Network";
+      tooltip = false;
     };
     tray = {
       icon-size = 20;
       spacing = 8;
     };
     pulseaudio = {
+      scroll-step = 5;
+      max-volume = 100;
       format = "{icon} {volume}%";
-      format-muted = "<span foreground='${blue}'> </span> {volume}%";
-      format-icons = {
-        default = [ "<span foreground='${blue}'> </span>" ];
-      };
-      scroll-step = 2;
-      on-click = "pamixer -t";
-      on-click-right = "pavucontrol";
+      format-bluetooth = "{icon} {volume}%";
+      format-icons = [
+        ""
+        ""
+        " "
+      ];
+      nospacing = 1;
+      format-muted = " ";
+      on-click = "pavucontrol";
+      tooltip = false;
     };
     battery = {
       format = "<span foreground='${yellow}'>{icon}</span> {capacity}%";

@@ -7,10 +7,16 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { nixpkgs, ... }@inputs: {
+  outputs = { nixpkgs, stylix, ... }@inputs: {
     nixosConfigurations.fre3d0m-uses-nixos = nixpkgs.lib.nixosSystem {
       modules = [ 
+          stylix.nixosModules.stylix
           ./hosts/desktop
       ];
       specialArgs = {
