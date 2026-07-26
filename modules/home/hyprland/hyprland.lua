@@ -21,7 +21,7 @@
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
 	output = "DP-1",
-	mode = "2560x1440@180",
+	mode = "modeline 768.50 2560 2608 2640 2720 1440 1443 1448 1570 +hsync -vsync",
 	position = "0x0",
 	scale = "1",
 	vrr = 1,
@@ -55,6 +55,7 @@ hl.on("hyprland.start", function()
 	--   hl.exec_cmd("nm-applet")
 	hl.exec_cmd("waybar &")
 	hl.exec_cmd("hyprctl setcursor catppuccin-mocha-sky-cursors 24")
+	hl.exec_cmd("hyprpaper")
 end)
 
 -------------------------------
@@ -69,6 +70,7 @@ hl.env("XCURSOR_THEME", "catppuccin-mocha-sky-cursors")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+hl.env("NIXOS_OZONE_WL", "1")
 
 -----------------------
 ----- PERMISSIONS -----

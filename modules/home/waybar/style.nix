@@ -4,20 +4,21 @@ let
     font = "Maple Mono";
     font_size = "18px";
     font_weight = "bold";
-    text_color = "#FBF1C7";
+    text_color = "#FEFEFE";
     background_0 = "#1D2021";
     background_1 = "#282828";
     border_color = "#A89984";
     red = "#CC241D";
     green = "#98971A";
     yellow = "#FABD2F";
-    blue = "#458588";
+    blue = "#1666BF";
     magenta = "#B16286";
-    cyan = "#689D6A";
+    cyan = "#00BBD3";
     orange = "#D65D0E";
     orange_bright = "#FE8019";
     opacity = "1";
     indicator_height = "2px";
+    transparent_opacity = "0.65";
   };
 in
 {
@@ -35,12 +36,12 @@ in
 
     window#waybar {
       background: ${background_1};
-      border-top: 1px solid ${border_color};
+      opacity: ${transparent_opacity};
     }
 
     tooltip {
       background: ${background_1};
-      border: 1px solid ${border_color};
+      opacity: ${transparent_opacity};
     }
     tooltip label {
       margin: 5px;
@@ -51,7 +52,7 @@ in
       padding-left: 15px;
     }
     #workspaces button {
-      color: ${yellow};
+      color: ${blue};
       padding-left:  5px;
       padding-right: 5px;
       margin-right: 10px;
@@ -60,7 +61,7 @@ in
       color: ${text_color};
     }
     #workspaces button.active {
-      color: ${orange_bright};
+      color: ${cyan};
     }
 
     #clock {
@@ -73,7 +74,6 @@ in
     }
     #tray menu {
       background: ${background_1};
-      border: 1px solid ${border_color};
       padding: 8px;
     }
     #tray menuitem {
@@ -81,19 +81,15 @@ in
     }
 
     #pulseaudio, #network, #cpu, #memory, #disk, #battery, #language, #custom-notification, #custom-power-menu {
-      padding-left: 5px;
-      padding-right: 5px;
-      margin-right: 10px;
+      padding-left: 6px;
+      padding-right: 6px;
+      margin-left: 5px;
+      margin-right: 5px;
       color: ${text_color};
     }
 
-    #pulseaudio, #language, #custom-notification {
-      margin-left: 15px;
-    }
-
-    #custom-power-menu {
-      padding-right: 2px;
-      margin-right: 5px;
+    #network {
+      margin-right: -2px;
     }
 
     #custom-launcher {

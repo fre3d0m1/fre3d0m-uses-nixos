@@ -22,5 +22,6 @@
         ./utilities.nix
         ./nemo.nix
         ./amberol.nix
+        ./prismlauncher.nix
     ];
 }
