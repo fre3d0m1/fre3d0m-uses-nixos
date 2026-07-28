@@ -5,5 +5,7 @@
         fastfetch
         vlc
         pureref
+        # Audio control
+        pavucontrol
     ];   
 }

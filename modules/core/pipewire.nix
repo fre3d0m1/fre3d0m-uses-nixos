@@ -14,4 +14,5 @@
 
   services.xrdp.enable = true;
   services.xrdp.audio.enable = true;
+  
 }
