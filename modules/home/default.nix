@@ -5,7 +5,6 @@
         ./bash.nix
         ./bat.nix
         ./btop.nix
-        ./discord.nix
         ./git.nix
         ./godot.nix
         ./heroic.nix
