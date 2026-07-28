@@ -15,6 +15,6 @@
         ./wayland.nix
         ./xserver.nix
         ./nix-ld.nix
-        ./stylix.nix
+        ./opentabletdriver.nix
     ];
 }
