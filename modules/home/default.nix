@@ -17,7 +17,7 @@
         ./telegram.nix
         ./tree.nix
         ./waybar
-        ./kitty.nix
+        ./kitty/kitty.nix
         ./utilities.nix
         ./nemo.nix
         ./amberol.nix
