@@ -70,6 +70,7 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("LIBVA_DRIVER_NAME", "nvidia")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
 hl.env("NIXOS_OZONE_WL", "1")
+hl.env("HYPRSHOT_DIR", "/home/fre3d0m/Pictures/Screenshots/")
 
 -----------------------
 ----- PERMISSIONS -----

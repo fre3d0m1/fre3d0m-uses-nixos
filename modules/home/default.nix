@@ -25,5 +25,6 @@
         ./prismlauncher.nix
         ./gtk.nix
         ./vesktop.nix
+        ./art.nix
     ];
 }
