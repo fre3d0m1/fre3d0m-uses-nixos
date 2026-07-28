@@ -187,6 +187,24 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 -- "Smart gaps" / "No gaps when only"
 -- uncomment all if you wish to use that.
 hl.window_rule({ match = { content = "game", fullscreen = true }, confine_pointer = true })
+
+-- hl.window_rule({
+-- 	name = "Picture in Picture",
+-- 	"float",
+-- 	"pin",
+-- 	"size 25% 25%",
+-- 	"move 74% 72%",
+-- 	match = {
+-- 		title = "^(Picture-in-Picture)$",
+-- 	},
+-- })
+
+hl.on("window.title", function(w)
+	if w ~= nil and w.title == "Picture-in-Picture" then
+		hl.dispatch(hl.dsp.window.float({ action = "set" }))
+	end
+end)
+
 -- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
 -- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
 -- hl.window_rule({
