@@ -4,5 +4,6 @@
         unzip
         fastfetch
         vlc
+        pureref
     ];   
 }
