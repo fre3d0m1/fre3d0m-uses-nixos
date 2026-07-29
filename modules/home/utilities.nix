@@ -7,5 +7,7 @@
         pureref
         # Audio control
         pavucontrol
+        # Image viewer
+        imv
     ];   
 }

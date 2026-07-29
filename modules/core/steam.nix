@@ -17,6 +17,7 @@
                 "--rt"
                 "--expose-wayland"
             ];
+            enableWsi = true;
         };
     };
 

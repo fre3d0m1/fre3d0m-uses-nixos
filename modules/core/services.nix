@@ -17,6 +17,9 @@
           motherboard = "amd"; 
           server.port = 6742; 
         };
+
+        gvfs.enable = true;
+        udisks2.enable = true;
     };
     
 
