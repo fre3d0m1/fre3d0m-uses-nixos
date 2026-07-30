@@ -25,5 +25,6 @@
         ./gtk.nix
         ./vesktop.nix
         ./art.nix
+        ./libreoffice.nix
     ];
 }
