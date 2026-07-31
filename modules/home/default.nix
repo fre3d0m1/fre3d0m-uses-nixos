@@ -27,5 +27,6 @@
         ./art.nix
         ./libreoffice.nix
         ./davinci.nix
+        ./reaper.nix
     ];
 }
