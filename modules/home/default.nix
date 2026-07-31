@@ -26,5 +26,6 @@
         ./vesktop.nix
         ./art.nix
         ./libreoffice.nix
+        ./davinci.nix
     ];
 }
