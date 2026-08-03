@@ -1,44 +1,33 @@
 { pkgs, lib, ... }:
 {
-
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      gtk-theme = "Tokyonight-Dark";
-      icon-theme = "Papirus-Dark";
-      color-scheme = "prefer-dark";
-    };
-  };
-
-
   gtk = {
     enable = true;
-
     colorScheme = "dark";
 
     iconTheme = {
-      name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme.override {
-          color = "black";
-      };
+      name = "Dracula";
+      package = pkgs.dracula-icon-theme;
     };
 
     theme = {
-      name = "Tokyonight-Dark";
-      package = pkgs.tokyonight-gtk-theme.override {
-          colorVariants = [ "dark" ];
-      };
+      name = "Adwaita-dark";
+      package = pkgs.gnome-themes-extra;
     };
 
     gtk4 = {
       theme = {
-        name = "Tokyonight-Dark";
-        package = pkgs.tokyonight-gtk-theme.override {
-          colorVariants = [ "dark" ];
-        };
+        name = "Adwaita-dark";
+        package = pkgs.gnome-themes-extra;
       };
       extraConfig = {
         gtk-application-prefer-dark-theme = lib.mkForce true;
       };
+    };
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
     };
   };
 }
