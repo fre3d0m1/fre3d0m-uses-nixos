@@ -1,4 +1,7 @@
 { pkgs, ... }:
 {
-    home.packages = with pkgs; [ librewolf ];
+    home.packages = with pkgs; [ 
+        librewolf
+        firefox
+    ];
 }
