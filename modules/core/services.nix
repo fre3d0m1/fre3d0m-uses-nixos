@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
     services = {
+        upower.enable = true;
+
         tailscale.enable = true;
 
         printing.enable = true;
