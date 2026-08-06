@@ -9,5 +9,7 @@
         pavucontrol
         # Image viewer
         imv
+        unrar
+        reshade
     ];   
 }

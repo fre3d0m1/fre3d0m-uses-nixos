@@ -8,6 +8,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    nix-reshade = {
+      url = "github:LovingMelody/nix-reshade";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs = { nixpkgs,... }@inputs: {
     nixosConfigurations.fre3d0m-uses-nixos = nixpkgs.lib.nixosSystem {

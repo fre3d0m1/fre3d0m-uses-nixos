@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
     services = {
+        hypridle.enable = true;
         upower.enable = true;
 
         tailscale.enable = true;
