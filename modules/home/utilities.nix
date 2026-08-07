@@ -10,6 +10,5 @@
         # Image viewer
         imv
         unrar
-        reshade
     ];   
 }

@@ -14,4 +14,6 @@
         useOSProber = true;
     };
 
+    time.hardwareClockInLocalTime = true;
+
 }
