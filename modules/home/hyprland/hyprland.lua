@@ -38,7 +38,8 @@ hl.monitor({
 local terminal = "kitty"
 local fileManager = "nemo"
 local menu = "hyprlauncher"
-local rofi = "rofi -show drun"
+local programPicker = "rofi -show drun"
+local locker = "hyprlock"
 
 -------------------
 ---- AUTOSTART ----
@@ -308,7 +309,8 @@ hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd("hyprshot -m region"))
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(rofi))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(programPicker))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(locker))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 hl.bind(

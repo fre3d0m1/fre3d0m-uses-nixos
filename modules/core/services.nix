@@ -1,9 +1,17 @@
 { pkgs, ... }:
 {
+    security.pam.services.hyprlock = {};
+
     services = {
+
+        # IRC
         weechat.enable = true;
+        
+        #Hyprland services
         hypridle.enable = true;
+
         upower.enable = true;
+        
         flatpak.enable = true;
 
         tailscale.enable = true;
