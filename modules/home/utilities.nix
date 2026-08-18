@@ -10,5 +10,6 @@
         # Image viewer
         imv
         unrar
+        anki
     ];   
 }

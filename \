@@ -194,22 +194,14 @@ hl.animation({ leaf = "zoomFactor", enabled = true, speed = 7, bezier = "quick" 
 hl.window_rule({
 	name = "godot-playing-float",
 	match = {
-		class = "^Retail-Talk$", -- Exact class reported by hyprctl
+		class = "Retail-Talk",
+		title = "Retail Talk (DEBUG)",
+		initial_class = "Retail-Talk",
+		initial_title = "Godot",
 	},
 	float = true,
 	center = true,
 })
-
-hl.window_rule({
-	name = "godot-playing-background-float",
-	match = {
-		initial_class = "Godot",
-		initial_title = ".*(DEBUG).*",
-	},
-	float = true,
-	center = true,
-})
-
 -- hl.window_rule({
 -- 	name = "Picture in Picture",
 -- 	"float",

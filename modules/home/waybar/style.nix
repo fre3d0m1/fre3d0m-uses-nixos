@@ -45,6 +45,7 @@ in
     #battery,
     #network,
     #clock,
+    #language,
     #custom-applauncher,
     #tray,
     #workspaces,

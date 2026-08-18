@@ -33,6 +33,7 @@ in
     ];
     modules-center = [ "clock" ];
     modules-right = [
+      "hyprland/language"
       "network"
       "battery"
       "pulseaudio"
@@ -119,6 +120,8 @@ in
       format = "<span foreground='#FABD2F'> </span> {}";
       format-fr = "FR";
       format-en = "US";
+      format-ca = "CA";
+      format-jp = "JP";
       on-click = "hyprctl switchxkblayout at-translated-set-2-keyboard next";
     };
     "custom/launcher" = {

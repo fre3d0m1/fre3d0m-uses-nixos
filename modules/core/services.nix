@@ -1,8 +1,10 @@
 { pkgs, ... }:
 {
     services = {
+        weechat.enable = true;
         hypridle.enable = true;
         upower.enable = true;
+        flatpak.enable = true;
 
         tailscale.enable = true;
 
@@ -23,6 +25,14 @@
 
         gvfs.enable = true;
         udisks2.enable = true;
+
+        xserver.xkb = {
+          layout = "us,jp,ca";
+          # Note that the trailing comma is required: https://github.com/NixOS/nixpkgs/issues/359830
+          variant = "workman,,";
+          options = "grp:win_space_toggle";
+        };
+
     };
     
 
@@ -31,5 +41,14 @@
 
     hardware.i2c.enable = true;
     users.users.fre3d0m.extraGroups = [ "i2c" ];
+    
+    i18n.inputMethod = {
+      enable = true;
+      type = "fcitx5";
+      fcitx5 = {
+        waylandFrontend = true;
+        addons = with pkgs; [ fcitx5-mozc fcitx5-gtk ];
+      };
+    };
 
 }
