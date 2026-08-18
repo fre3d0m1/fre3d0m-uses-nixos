@@ -9,12 +9,22 @@
     };
   };
   outputs = { nixpkgs,... }@inputs: {
-    nixosConfigurations.fre3d0m-uses-nixos = nixpkgs.lib.nixosSystem {
-      modules = [ 
-          ./hosts/desktop
-      ];
-      specialArgs = {
-        inherit inputs;
+    nixosConfigurations = {
+      desktop-fast = nixpkgs.lib.nixosSystem {
+        modules = [ 
+            ./hosts/desktop-fast
+        ];
+        specialArgs = {
+          inherit inputs;
+        };
+      };
+      desktop = nixpkgs.lib.nixosSystem {
+        modules = [ 
+            ./hosts/desktop
+        ];
+        specialArgs = {
+          inherit inputs;
+        };
       };
     };
   };

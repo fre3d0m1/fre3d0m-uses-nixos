@@ -5,7 +5,7 @@
 	shellAliases = {
 		btw = "echo i use nixos btw";
 		nrs = "sudo nixos-rebuild switch";
-		nfis = "sudo nixos-rebuild switch --flake . --impure";
+		nfis = "sudo nixos-rebuild switch --flake .#desktop-fast";
 	};
 
 	initExtra = ''
