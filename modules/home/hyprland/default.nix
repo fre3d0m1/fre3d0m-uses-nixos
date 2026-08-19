@@ -1,6 +1,10 @@
-{ ... }:
+{ pkgs, ... }:
 {
     wayland.windowManager.hyprland.systemd.enable = false;
+    
+    home.packages = with pkgs; [
+        hyprshutdown
+    ];
 
     imports = [
         ./settings.nix

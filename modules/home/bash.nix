@@ -6,6 +6,8 @@
 		btw = "echo i use nixos btw";
 		nrs = "sudo nixos-rebuild switch";
 		nfis = "sudo nixos-rebuild switch --flake .#desktop-fast";
+		shut = "hyprshutdown -t 'Shutting down...' --post-cmd 'shutdown -P 0'";
+		rest = "hyprshutdown -t 'Restarting...' --post-cmd 'reboot'";
 	};
 
 	initExtra = ''
