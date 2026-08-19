@@ -14,7 +14,7 @@
         
         flatpak.enable = true;
 
-        tailscale.enable = true;
+        tailscale.enable = false;
 
         printing.enable = true;
 
