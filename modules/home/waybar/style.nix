@@ -48,7 +48,6 @@ in
     #language,
     #custom-applauncher,
     #tray,
-    #workspaces,
     #pulseaudio {
       background-image: linear-gradient(to bottom, #27232b 100%);
 
@@ -108,8 +107,10 @@ in
       min-width: 0;
       font-weight: bold;
       color: #3d3d3d;
-      margin-right: 0.2cm;
-      margin-left: 0.2cm;
+      margin: 6px 3px;
+      padding: 6px;
+      border-radius: 4px;
+      background-image: linear-gradient(to bottom, #27232b 100%);
     }
 
     #workspaces button:hover {
