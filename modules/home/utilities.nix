@@ -11,5 +11,6 @@
         imv
         unrar
         anki
+        efibootmgr
     ];   
 }
