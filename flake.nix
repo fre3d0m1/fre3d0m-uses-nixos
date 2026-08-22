@@ -26,6 +26,14 @@
           inherit inputs;
         };
       };
+      laptop = nixpkgs.lib.nixosSystem {
+        modules = [
+          ./hosts/laptop
+        ];
+        specialArgs = {
+          inherit inputs;
+        };
+      };
     };
   };
 }
