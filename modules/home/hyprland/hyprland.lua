@@ -19,16 +19,30 @@
 ------------------
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
-hl.monitor({
-	output = "DP-1",
-	mode = "modeline 768.50 2560 2608 2640 2720 1440 1443 1448 1570 +hsync -vsync",
-	position = "0x0",
-	scale = "1",
-	bitdepth = 10,
-	cm = "hdr",
-	sdrbrightness = 5,
-	sdrsaturation = 1.2,
-})
+
+local handle = io.popen("hostname")
+local hostname = handle:read("*a"):gsub("%s+", "")
+handle:close()
+
+if hostname == "fre3d0m-uses-nixos" then
+	hl.monitor({
+		output = "DP-1",
+		mode = "modeline 768.50 2560 2608 2640 2720 1440 1443 1448 1570 +hsync -vsync",
+		position = "0x0",
+		scale = "1",
+		bitdepth = 10,
+		cm = "hdr",
+		sdrbrightness = 5,
+		sdrsaturation = 1.2,
+	})
+else
+	hl.monitor({
+		output = "eDP-1",
+		mode = "1920x1080@60",
+		position = "0x0",
+		scale = "1",
+	})
+end
 
 ---------------------
 ---- MY PROGRAMS ----
