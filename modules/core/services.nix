@@ -9,6 +9,9 @@
         
         #Hyprland services
         hypridle.enable = true;
+        
+        #College
+        onedrive.enable = true;
 
         upower.enable = true;
         
