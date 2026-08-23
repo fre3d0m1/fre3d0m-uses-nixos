@@ -1,0 +1,21 @@
+{ ... }: 
+{
+  wayland.windowManager.hyprland.settings.config = {
+    input = {
+      kb_layout = "us,jp,ca";
+      kb_variant = "";
+      kb_model = "";
+      kb_options = "grp:alt_shift_toggle";
+      kb_rules = "";
+
+      follow_mouse = 1;
+      mouse_refocus = false;
+
+      sensitivity = 0; # -1.0 - 1.0, 0 means no modification.
+
+      touchpad = {
+        natural_scroll = false;
+      };
+    };
+  };
+}
