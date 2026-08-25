@@ -5,9 +5,7 @@
         fastfetch
         vlc
         pureref
-        # Audio control
         pavucontrol
-        # Image viewer
         imv
         unrar
         anki

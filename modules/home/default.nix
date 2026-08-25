@@ -28,5 +28,6 @@
         ./libreoffice.nix
         ./davinci.nix
         ./reaper.nix
+        ./playerctl.nix
     ];
 }

@@ -5,6 +5,7 @@ let
     terminal = "kitty";
     programPicker = "rofi -show drun";
     locker = "hyprlock";
+    fileManager = "nemo";
 
     makeKeybind = keybind: action: {
       _args = [ keybind (lib.generators.mkLuaInline action) ];
@@ -31,6 +32,8 @@ in
             (makeKeybind "${mainMod} + D" "hl.dsp.exec_cmd(\"${programPicker}\")")
 
             (makeKeybind "${mainMod} + L" "hl.dsp.exec_cmd(\"${locker}\")")
+
+            (makeKeybind "${mainMod} + E" "hl.dsp.exec_cmd(\"${fileManager}\")")
             
             # Window-specific
             (makeKeybind "${mainMod} + V" "hl.dsp.window.float({ action = \"toggle\" })")
@@ -47,7 +50,43 @@ in
             (makeKeybindOpts 
                 "XF86AudioRaiseVolume" 
                 "hl.dsp.exec_cmd(\"wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+\")" 
-                { mouse = true; }
+                { locked = true; repeating = true; }
+            )
+
+            (makeKeybindOpts 
+                "XF86AudioLowerVolume" 
+                "hl.dsp.exec_cmd(\"wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-\")" 
+                { locked = true; repeating = true; }
+            )
+
+            (makeKeybindOpts 
+                "XF86AudioMute" 
+                "hl.dsp.exec_cmd(\"wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle\")" 
+                { locked = true; repeating = true; }
+            )
+            
+            (makeKeybindOpts 
+                "XF86AudioNext" 
+                "hl.dsp.exec_cmd(\"playerctl next\")" 
+                { locked = true; }
+            )
+
+            (makeKeybindOpts 
+                "XF86AudioPause" 
+                "hl.dsp.exec_cmd(\"playerctl play-pause\")" 
+                { locked = true; }
+            )
+
+            (makeKeybindOpts 
+                "XF86AudioPlay" 
+                "hl.dsp.exec_cmd(\"playerctl play-pause\")" 
+                { locked = true; }
+            )
+
+            (makeKeybindOpts 
+                "XF86AudioPrev" 
+                "hl.dsp.exec_cmd(\"playerctl previous\")" 
+                { locked = true; }
             )
 
         ] ++ (
