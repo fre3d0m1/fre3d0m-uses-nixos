@@ -4,9 +4,7 @@
       on = {
         _args = [
           "hyprland.start"
-          (lib.generators.mkLuaInline "function()\n  hl.exec_cmd(\"waybar\")\nend")
-          (lib.generators.mkLuaInline "function()\n  hl.exec_cmd(\"hyprpaper\")\nend")
-          (lib.generators.mkLuaInline "function()\n  hl.exec_cmd(\"hypridle\")\nend")
+          (lib.generators.mkLuaInline "function()\n  hl.exec_cmd(\"waybar\") hl.exec_cmd(\"hyprpaper\") hl.exec_cmd(\"hypridle\") \nend")
         ];
       };
     };

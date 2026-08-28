@@ -8,6 +8,8 @@
                 match.class = "^Retail-Talk$";
                 float = true;
                 center = true;
+                fullscreen = false;
+                maximize = false;
             }
             # The godot window behind debug window
             {
@@ -18,6 +20,8 @@
                 };
                 float = true;
                 center = true;
+                fullscreen = false;
+                maximize = false;
             }
             # Fix some dragging issues with XWayland
             {
