@@ -29,5 +29,6 @@
         ./davinci.nix
         ./reaper.nix
         ./playerctl.nix
+        ./ffmpeg.nix
     ];
 }
