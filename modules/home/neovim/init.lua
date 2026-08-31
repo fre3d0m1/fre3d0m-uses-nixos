@@ -43,6 +43,7 @@ do
 	vim.o.shiftwidth = 4 -- Default fallback if guess-indent can't find existing code
 	vim.o.expandtab = true -- Prefer spaces over hard tabs by default
 	vim.o.tabstop = 4
+	vim.opt_local.softtabstop = 4
 	vim.o.swapfile = false
 end
 
@@ -261,6 +262,11 @@ do
 	vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 	vim.keymap.set("n", "<leader>sc", builtin.commands, { desc = "[S]earch [C]ommands" })
 	vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
+	vim.keymap.set({ "n", "v", "i" }, "<Up>", "<nop>")
+	vim.keymap.set({ "n", "v", "i" }, "<Down>", "<nop>")
+	vim.keymap.set({ "n", "v", "i" }, "<Left>", "<nop>")
+	vim.keymap.set({ "n", "v", "i" }, "<Right>", "<nop>")
 
 	-- Add Telescope-based LSP pickers when an LSP attaches to a buffer.
 	-- If you later switch picker plugins, this is where to update these mappings.
@@ -521,6 +527,7 @@ do
 				python = true,
 				rust = true,
 				gdscript = true,
+				nix = true,
 			}
 			if enabled_filetypes[vim.bo[bufnr].filetype] then
 				return { timeout_ms = 500 }
@@ -537,6 +544,7 @@ do
 			rust = { "rustfmt", lsp_format = "fallback" },
 			javascript = { "prettierd", "prettier", stop_after_first = true },
 			gdscript = { "gdscript-formatter" },
+			nix = { "nil" },
 		},
 	})
 
