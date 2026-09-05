@@ -53,7 +53,7 @@ in
     "hyprland/workspaces" = {
       active-only = false;
       disable-scroll = true;
-      format = "{icon} : {windows}";
+      format = "{icon}";
       on-click = "activate";
       format-icons = {
         "1" = "I";
@@ -67,24 +67,6 @@ in
         "9" = "IX";
         "10" = "X";
         sort-by-number = true;
-      };
-      format-window-separator = " ";
-      window-rewrite-default = "";
-      window-rewrite = {
-        "class<firefox>" = "";
-        "class<librewolf>" = "󰈹";
-        "class<kitty>" = "";
-        "class<foot>" = "";
-        "class<code-url-handler>" = "󰨞";
-        "class<Code>" = "󰨞";
-        "class<thunar>" = "󰝰";
-        "class<vesktop>" = "󰙯";
-        "class<org.telegram.desktop>" = "";
-        "class<spotify>" = "";
-        "class<steam>" = "󰓓";
-        "class<cs2>" = "󰺵";
-        "title<.*Counter-Strike.*>" = "󰺵";
-        "title<.*YouTube.*>" = "";
       };
     };
     network = {
