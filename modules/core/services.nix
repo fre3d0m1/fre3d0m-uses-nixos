@@ -1,65 +1,70 @@
 { pkgs, ... }:
 {
-    security.pam.services.hyprlock = {};
+  security.pam.services.hyprlock = { };
 
-    services = {
+  services = {
 
-        # IRC
-        weechat.enable = true;
-        
-        #Hyprland services
-        hypridle.enable = true;
-        
-        #College
-        onedrive.enable = true;
+    # IRC
+    weechat.enable = true;
 
-        upower.enable = true;
-        
-        flatpak.enable = true;
+    #Hyprland services
+    # hypridle.enable = true;
 
-        tailscale.enable = false;
+    #College
+    onedrive.enable = true;
 
-        printing.enable = true;
+    upower.enable = true;
 
-        flaresolverr = {
-            enable = true;
-            port = 8191;
-        };
-        prowlarr.enable = true;
+    flatpak.enable = true;
 
-        hardware.openrgb = { 
-          enable = true; 
-          package = pkgs.openrgb-with-all-plugins; 
-          motherboard = "amd"; 
-          server.port = 6742; 
-        };
+    tailscale.enable = false;
 
-        gvfs.enable = true;
-        udisks2.enable = true;
+    printing.enable = true;
 
-        xserver.xkb = {
-          layout = "us,jp,ca";
-          # Note that the trailing comma is required: https://github.com/NixOS/nixpkgs/issues/359830
-          variant = "workman,,";
-          options = "grp:win_space_toggle";
-        };
-
-    };
-    
-
-    # OpenRGB
-    boot.kernelModules = [ "i2c-dev" "i2c-piix4" ];
-
-    hardware.i2c.enable = true;
-    users.users.fre3d0m.extraGroups = [ "i2c" ];
-    
-    i18n.inputMethod = {
+    flaresolverr = {
       enable = true;
-      type = "fcitx5";
-      fcitx5 = {
-        waylandFrontend = true;
-        addons = with pkgs; [ fcitx5-mozc fcitx5-gtk ];
-      };
+      port = 8191;
     };
+    prowlarr.enable = true;
+
+    hardware.openrgb = {
+      enable = true;
+      package = pkgs.openrgb-with-all-plugins;
+      motherboard = "amd";
+      server.port = 6742;
+    };
+
+    gvfs.enable = true;
+    udisks2.enable = true;
+
+    xserver.xkb = {
+      layout = "us,jp,ca";
+      # Note that the trailing comma is required: https://github.com/NixOS/nixpkgs/issues/359830
+      variant = "";
+      options = "grp:win_space_toggle";
+    };
+
+  };
+
+  # OpenRGB
+  boot.kernelModules = [
+    "i2c-dev"
+    "i2c-piix4"
+  ];
+
+  hardware.i2c.enable = true;
+  users.users.fre3d0m.extraGroups = [ "i2c" ];
+
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-mozc
+        fcitx5-gtk
+      ];
+    };
+  };
 
 }

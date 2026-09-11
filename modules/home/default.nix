@@ -1,34 +1,34 @@
 { ... }:
 {
-    imports = [
-        ./alacritty.nix
-        ./bash.nix
-        ./bat.nix
-        ./btop.nix
-        ./git.nix
-        ./godot.nix
-        ./heroic.nix
-        ./hyprland
-        ./librewolf.nix
-        ./neovim/neovim.nix
-        ./pcmanfm.nix
-        ./rofi/rofi.nix
-        ./swaync/swaync.nix
-        ./telegram.nix
-        ./tree.nix
-        ./waybar
-        ./kitty/kitty.nix
-        ./utilities.nix
-        ./nemo.nix
-        ./amberol.nix
-        ./prismlauncher.nix
-        ./gtk.nix
-        ./vesktop.nix
-        ./art.nix
-        ./libreoffice.nix
-        ./davinci.nix
-        ./reaper.nix
-        ./playerctl.nix
-        ./ffmpeg.nix
-    ];
+  imports = [
+    ./python.nix
+    ./alacritty.nix
+    ./bash.nix
+    ./bat.nix
+    ./btop.nix
+    ./git.nix
+    ./godot.nix
+    ./heroic.nix
+    ./librewolf.nix
+    ./neovim/neovim.nix
+    ./pcmanfm.nix
+    ./rofi/rofi.nix
+    ./swaync/swaync.nix
+    ./telegram.nix
+    ./tree.nix
+    ./waybar
+    ./kitty/kitty.nix
+    ./utilities.nix
+    ./nemo.nix
+    ./amberol.nix
+    ./prismlauncher.nix
+    ./gtk.nix
+    ./vesktop.nix
+    ./art.nix
+    ./libreoffice.nix
+    ./davinci.nix
+    ./reaper.nix
+    ./playerctl.nix
+    ./ffmpeg.nix
+  ];
 }

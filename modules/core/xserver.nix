@@ -1,13 +1,12 @@
-{ ... }:
+{ pkgs, ... }:
 {
-    services = {
-        xserver = {
-            enable = true;
-            # xkb.layout = "us,fr";
-        };
-
-        libinput = {
-            enable = true;
-        };
+  services = {
+    xserver = {
+      enable = true;
     };
+
+    libinput = {
+      enable = true;
+    };
+  };
 }

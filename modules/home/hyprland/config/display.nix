@@ -1,26 +1,33 @@
-{ osConfig, lib, ...}:
+{ osConfig, lib, ... }:
 let
-    isDesktop = osConfig.networking.hostName == "fre3d0m-uses-nixos";
+  isDesktop = osConfig.networking.hostName == "fre3d0m-uses-nixos";
 in
 {
-    wayland.windowManager.hyprland.settings.monitor = 
-        if isDesktop then [
+  wayland.windowManager.hyprland.settings.monitor =
+    if isDesktop then
+      [
         {
-            output = "DP-1";
-            mode = "modeline 768.50 2560 2608 2640 2720 1440 1443 1448 1570 +hsync -vsync";
-            position = "0x0";
-            scale = "1";
-            bitdepth = 10;
-            cm = "hdr";
-            sdrbrightness = 5;
-            sdrsaturation = 1.2;
+          output = "DP-1";
+          mode = "2560x1440@180.00Hz";
+          position = "0x0";
+          scale = "1";
+          bitdepth = 10;
+          cm = "hdr";
+          sdrbrightness = 1.5;
+          sdrsaturation = 1;
+          max_luminance = 1000;
+          min_luminance = 0;
+          sdr_max_luminance = 250;
+          sdr_min_luminance = 0;
         }
-    ] else [
+      ]
+    else
+      [
         {
-            output = "eDP-1";
-            mode = "1920x1080@60";
-            position = "0x0";
-            scale = "1";
+          output = "eDP-1";
+          mode = "1920x1080@60";
+          position = "0x0";
+          scale = "1";
         }
-    ];
+      ];
 }
