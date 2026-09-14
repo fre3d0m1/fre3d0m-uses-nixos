@@ -8,40 +8,42 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  outputs = { nixpkgs,... }@inputs: {
-    nixosConfigurations = {
-      desktop-fast = nixpkgs.lib.nixosSystem {
-        modules = [ 
+  outputs =
+    { nixpkgs, ... }@inputs:
+    {
+      nixosConfigurations = {
+        desktop-fast = nixpkgs.lib.nixosSystem {
+          modules = [
             ./hosts/desktop-fast
-        ];
-        specialArgs = {
-          inherit inputs;
+          ];
+          specialArgs = {
+            inherit inputs;
+          };
         };
-      };
-      desktop = nixpkgs.lib.nixosSystem {
-        modules = [ 
+        desktop = nixpkgs.lib.nixosSystem {
+          modules = [
             ./hosts/desktop
-        ];
-        specialArgs = {
-          inherit inputs;
+          ];
+          specialArgs = {
+            inherit inputs;
+          };
         };
-      };
-      laptop = nixpkgs.lib.nixosSystem {
-        modules = [
-          ./hosts/laptop
-        ];
-        specialArgs = {
-          inherit inputs;
+        laptop = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./hosts/laptop
+          ];
+          specialArgs = {
+            inherit inputs;
+          };
         };
-      };
-      vm = nixpkgs.lib.nixosSystem {
-	modules = [
-	   ./hosts/vm
-	];
-	specialArgs = {
-		inherit inputs;
-	};
+        vm = nixpkgs.lib.nixosSystem {
+          modules = [
+            ./hosts/vm
+          ];
+          specialArgs = {
+            inherit inputs;
+          };
+        };
       };
     };
-  };
 }
