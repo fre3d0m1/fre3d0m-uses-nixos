@@ -34,6 +34,14 @@
           inherit inputs;
         };
       };
+      vm = nixpkgs.lib.nixosSystem {
+	modules = [
+	   ./hosts/vm
+	];
+	specialArgs = {
+		inherit inputs;
+	};
+      };
     };
   };
 }
