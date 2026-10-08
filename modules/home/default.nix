@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./sway.nix
     ./python.nix
     ./alacritty.nix
     ./bash.nix

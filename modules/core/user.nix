@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [ inputs.home-manager.nixosModules.home-manager ];
   home-manager = {
@@ -23,14 +23,20 @@
   };
 
   services.displayManager.sddm = {
-    enable = true;
+    enable = false;
     wayland.enable = true;
   };
 
-  services.desktopManager.plasma6.enable = true;
-
-  services.displayManager.autoLogin = {
-    enable = false;
-    user = "fre3d0m";
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --cmd sway";
+        user = "fre3d0m";
+      };
+    };
   };
+
+  services.desktopManager.plasma6.enable = false;
+
 }
