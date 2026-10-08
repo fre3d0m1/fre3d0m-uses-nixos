@@ -1,5 +1,7 @@
 { pkgs, ... }:
 {
+  programs.obs-studio.enable = true;
+
   security.pam.services.hyprlock = { };
 
   services = {
@@ -63,6 +65,8 @@
       addons = with pkgs; [
         fcitx5-mozc
         fcitx5-gtk
+        kdePackages.fcitx5-qt
+        kdePackages.fcitx5-configtool
       ];
     };
   };

@@ -11,5 +11,6 @@
     anki
     efibootmgr
     protonup-qt
+    appimage-run
   ];
 }
