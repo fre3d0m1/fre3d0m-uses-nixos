@@ -29,11 +29,9 @@ in
     margin-left = 500;
     margin-right = 500;
     modules-left = [
-      "hyprland/workspaces"
     ];
     modules-center = [ "clock" ];
     modules-right = [
-      "hyprland/language"
       "network"
       "battery"
       "pulseaudio"
@@ -50,7 +48,7 @@ in
       tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
       format-alt = "{:%d/%m}";
     };
-    "hyprland/workspaces" = {
+    "workspaces" = {
       active-only = false;
       disable-scroll = true;
       format = "{icon}";
@@ -114,7 +112,7 @@ in
       tooltip = true;
       tooltip-format = "{time}";
     };
-    "hyprland/language" = {
+    "language" = {
       tooltip = true;
       tooltip-format = "Keyboard layout";
       format = "<span foreground='#FABD2F'> </span> {}";
@@ -122,7 +120,6 @@ in
       format-en = "US";
       format-ca = "CA";
       format-jp = "JP";
-      on-click = "hyprctl switchxkblayout at-translated-set-2-keyboard next";
     };
   };
 }

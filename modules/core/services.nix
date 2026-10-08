@@ -2,15 +2,10 @@
 {
   programs.obs-studio.enable = true;
 
-  security.pam.services.hyprlock = { };
-
   services = {
 
     # IRC
     weechat.enable = true;
-
-    #Hyprland services
-    # hypridle.enable = true;
 
     #College
     onedrive.enable = true;
