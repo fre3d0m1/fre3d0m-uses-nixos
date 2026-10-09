@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
+    jetbrains.idea
+    jetbrains.webstorm
     unzip
     fastfetch
     vlc

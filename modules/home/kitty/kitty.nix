@@ -8,7 +8,7 @@
       sync_to_monitor = "no";
       wayland_enable_ime = "no";
 
-      background_opacity = "0.7";
+      background_opacity = "0.93";
       font_family = "family=\"Maple Mono NF\"";
     };
   };

@@ -1,0 +1,190 @@
+/*
+ * ORIGINAL DOTFILES: https://github.com/ErikReider/SwayNotificationCenter/discussions/183#discussioncomment-8022846
+ */
+
+@define-color cc-bg #0d0d0d;
+@define-color noti-border-color #242424;
+@define-color noti-bg #353535;
+@define-color noti-bg-darker #242424;
+@define-color text-color #e6e6e6;
+@define-color accent-color #3f7aa6;
+
+:root {
+  --border-radius: 0px;
+}
+
+* {
+		font-family: "Adwaita Sans";
+		font-weight: normal;
+		font-size: 18px;
+		color: @text-color;
+}
+
+/* Control Center */
+/* ============== */
+.control-center .notification-row:focus,
+.control-center .notification-row:hover {
+    opacity: 1;
+    background: @noti-bg-darker;
+}
+
+.control-center {
+    background: @cc-bg;
+    outline: 1px solid @noti-border-color;
+    outline-offset: -1px;
+    border-radius: 0px;
+    /* box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5); */
+}
+
+.control-center scrollbar trough,
+.control-center scrollbar slider {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+/* Notifications */
+/* ============= */
+.notification-row {
+    outline: none;
+    margin: 20px;
+    padding: 0;
+}
+
+.notification, .notification:hover {
+    background: @cc-bg;
+    border: 1px solid @noti-border-color;
+    margin: 0px;
+    padding: 5px;
+}
+
+.notification .time {
+    font-size: 13px;
+}
+
+.close-button {
+    color: @text-color;
+    background: transparent;
+    text-shadow: none;
+    padding: 0;
+    border-radius: 0px;
+    margin-top: 6px;
+    margin-right: 6px;
+}
+
+.summary {
+		padding-top: 5px;
+    font-size: 18px;
+}
+
+.body {
+    font-size: 16px;
+}
+
+.notification-group, .notification-default-action:hover,
+.notification-content:hover {
+    background: transparent;
+}
+
+.notification-group-close-all-button,
+.notification-group-collapse-button,
+.notification-group-collapse-button:hover,
+.notification-group-close-all-button:hover {
+	background: transparent;
+	border: none;
+}
+
+/* Notification Actions */
+/* ==================== */
+.notification-action, .notification-action:hover {
+    background-color: @cc-bg;
+    color: @text-color;
+    border-top: none;
+    border-radius: 0px;
+}
+
+.notification-action>button {
+    background-color: @noti-bg-darker;
+    color: @text-color;
+}
+
+.notification-action>button:hover {
+    background-color: @noti-bg;
+    color: @text-color;
+}
+
+.notification-action>button:active {
+    background-color: @accent-color;
+    color: @text-color;
+}
+
+.blank-window {
+    /* background: alpha(black, 0.25); */
+}
+
+/* Widgets */
+/* ======= */
+.widget-title {
+    /* background: @noti-bg-darker; */
+    background: transparent;
+    padding: 5px 10px;
+    margin: 10px 10px 5px 10px;
+    border-radius: 0px;
+}
+
+.widget-title>button {
+    text-shadow: none;
+    background: @noti-bg-darker;
+    color: @cc-bg;
+    box-shadow: none;
+    border-radius: 0px;
+    padding: 2px 20px 2px 20px;
+}
+
+.widget-title>button:hover {
+    background: @noti-bg;
+    color: @text-color;
+}
+
+.widget-title>button:active {
+    background: @accent-color;
+    color: @text-color;
+}
+
+.widget-dnd {
+    /* background: @noti-bg-darker; */
+    background: transparent;
+    padding: 5px 10px;
+    margin: 5px 10px 10px 10px;
+    border-radius: 0px;
+}
+
+.widget-dnd>switch {
+    border-radius: 0px;
+    padding: 2px 2px 2px 2px;
+    background: @noti-bg;
+}
+
+.widget-dnd>switch:checked {
+    background: @accent-color;
+}
+
+.widget-dnd>switch slider {
+    background: @cc-bg;
+    border-radius: 0px;
+}
+
+.widget-dnd>switch:checked slider {
+    background: @cc-bg;
+    border-radius: 0px;
+}
+
+/* .widget-label { */
+/*     margin: 10px 10px 5px 10px; */
+/*     color: @text-color; */
+/* } */
+/**/
+/* .widget-label>label { */
+/*     font-size: 1rem; */
+/*     color: @text-color; */
+/* } */

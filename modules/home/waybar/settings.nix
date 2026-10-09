@@ -1,125 +1,190 @@
-{ host, ... }:
-let
-  custom = {
-    font = "Maple Mono";
-    font_size = "18px";
-    font_weight = "bold";
-    text_color = "#FBF1C7";
-    background_0 = "#1D2021";
-    background_1 = "#282828";
-    border_color = "#928374";
-    red = "#CC241D";
-    green = "#98971A";
-    yellow = "#FABD2F";
-    blue = "#458588";
-    magenta = "#B16286";
-    cyan = "#689D6A";
-    orange = "#D65D0E";
-    opacity = "1";
-    indicator_height = "2px";
-  };
-in
+{ pkgs, ... }:
+
 {
-  programs.waybar.settings.mainBar = with custom; {
-    position = "top";
-    layer = "top";
-    height = 28;
-    margin-top = 15;
-    margin-bottom = 0;
-    margin-left = 500;
-    margin-right = 500;
-    modules-left = [
-    ];
-    modules-center = [ "clock" ];
-    modules-right = [
-      "network"
-      "battery"
-      "pulseaudio"
-      "tray"
-    ];
-    clock = {
-      calendar = {
-        format = {
-          today = "<span color='#98971A'><b>{}</b></span>";
+  programs.waybar = {
+    settings = {
+      mainBar = {
+        layer = "top";
+        position = "top";
+        height = 35;
+
+        modules-left = [
+          "sway/workspaces"
+          "tray"
+          "sway/scratchpad"
+          "sway/mode"
+          "sway/window"
+        ];
+
+        modules-center = [
+          "clock#date"
+          "clock#time"
+        ];
+
+        modules-right = [
+          "power-profiles-daemon"
+          # "memory"
+          "network"
+          # "custom/weather"
+          # "cpu"
+          # "temperature"
+          "backlight"
+          "pulseaudio"
+          "battery"
+          "idle_inhibitor"
+        ];
+
+        "sway/workspaces" = {
+          disable-scroll = true;
+          disable-markup = true;
+          format = "{index}";
+        };
+
+        "sway/scratchpad" = {
+          format = " {count}";
+          on-click = "swaymsg scratchpad show";
+        };
+
+        "sway/window" = {
+          format = "{}";
+          # tooltip = false;
+          max-length = 45;
+        };
+
+        "tray" = {
+          icon-size = 22;
+          spacing = 6;
+        };
+
+        "clock#date" = {
+          format = "{:%a %m/%d}";
+          interval = 1;
+          tooltip = false;
+        };
+
+        "clock#time" = {
+          format = "{:%I:%M %p}";
+          interval = 1;
+          tooltip = false;
+        };
+
+        "battery" = {
+          bat = "BAT0";
+          states = {
+            full = 100;
+            normal = 99;
+            warn = 20;
+            critical = 10;
+          };
+          events = {
+            on-discharging-warn = "notify-send -u normal 'Warning: Low Battery' && powerprofilesctl set power-saver";
+            on-discharging-critical = "notify-send -u critical 'WARNING: Critical Battery!' && powerprofilesctl set power-saver";
+          };
+          format = "{icon} {capacity}%";
+          format-normal = "{icon} {capacity}%";
+          # format-full = "󱟢 {capacity}%";
+          format-charging = "󱐥 {capacity}%";
+          format-icons = [
+            "󰁺"
+            "󰁻"
+            "󰁼"
+            "󰁽"
+            "󰁾"
+            "󰁿"
+            "󰂀"
+            "󰂁"
+            "󰂂"
+            "󰁹"
+          ];
+          interval = 3;
+        };
+
+        "power-profiles-daemon" = {
+          format = "{icon}";
+          tooltip-format = "Profile: {profile}\nDriver: {driver}";
+          format-icons = {
+            default = "bal";
+            performance = "per";
+            balanced = "bal";
+            power-saver = "sav";
+          };
+        };
+
+        "network" = {
+          format-wifi = "󰖩  WiFi";
+          tooltip-format-wifi = "{essid} ({signalStrength}%)\n↓{bandwidthDownBits}  ↑{bandwidthUpBits}";
+          format-ethernet = "󰈀  Ethernet";
+          tooltip-format-ethernet = "{ifname}: {ipaddr}/{cidr}";
+          format-disconnected = "󰖪  Down";
+          tooltip-disconnected = false;
+          family = "ipv4";
+          interval = 3;
+          on-click = "${pkgs.networkmanagerapplet}/bin/nm-connection-editor";
+        };
+
+        "backlight" = {
+          device = "intel_backlight";
+          format = "{icon} {percent}%";
+          tooltip = false;
+          format-icons = [
+            "󰽥"
+            "󰃞 "
+            "󰃟 "
+            "󰃠 "
+          ];
+          interval = 60;
+        };
+
+        "cpu" = {
+          format = "  {usage}%";
+          interval = 3;
+        };
+
+        "memory" = {
+          format = "{used}GiB";
+          tooltip-format = "{percentage}% used";
+          interval = 3;
+        };
+
+        "temperature" = {
+          thermal-zone = 0;
+          format = "{icon} {temperatureC}°C";
+          format-icons = [ "" ];
+          interval = 3;
+        };
+
+        "pulseaudio" = {
+          format = "{icon} {volume}%";
+          # format-bluetooth = "󰂯 {volume}%";
+          format-muted = "󰝟 {volume}%";
+          interval = 60;
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
+          format-icons = {
+            default = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
+          };
+        };
+
+        "idle_inhibitor" = {
+          format = "{icon}";
+          format-icons = {
+            activated = "";
+            deactivated = "";
+          };
+        };
+
+        "custom/weather" = {
+          format = "{}";
+          tooltip = true;
+          interval = 600;
+          exec = "$HOME/.config/waybar/scripts/weather.py";
+          return-type = "json";
+          on-click = "gnome-weather";
         };
       };
-      format = "{:%H:%M}";
-      tooltip = "true";
-      tooltip-format = "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>";
-      format-alt = "{:%d/%m}";
-    };
-    "workspaces" = {
-      active-only = false;
-      disable-scroll = true;
-      format = "{icon}";
-      on-click = "activate";
-      format-icons = {
-        "1" = "I";
-        "2" = "II";
-        "3" = "III";
-        "4" = "IV";
-        "5" = "V";
-        "6" = "VI";
-        "7" = "VII";
-        "8" = "VIII";
-        "9" = "IX";
-        "10" = "X";
-        sort-by-number = true;
-      };
-    };
-    network = {
-      format-wifi = "  {bandwidthDownBits}";
-      format-ethernet = "  {bandwidthDownBits}";
-      format-disconnected = "󰤮  No Network";
-      tooltip = false;
-    };
-    tray = {
-      icon-size = 20;
-      spacing = 8;
-    };
-    pulseaudio = {
-      scroll-step = 5;
-      max-volume = 100;
-      format = "{icon} {volume}%";
-      format-bluetooth = "{icon} {volume}%";
-      format-icons = [
-        ""
-        ""
-        " "
-      ];
-      nospacing = 1;
-      format-muted = " ";
-      on-click = "pavucontrol";
-      tooltip = false;
-    };
-    battery = {
-      format = "<span foreground='${yellow}'>{icon}</span> {capacity}%";
-      format-icons = [
-        " "
-        " "
-        " "
-        " "
-        " "
-      ];
-      format-charging = "<span foreground='${yellow}'> </span>{capacity}%";
-      format-full = "<span foreground='${yellow}'> </span>{capacity}%";
-      format-warning = "<span foreground='${yellow}'> </span>{capacity}%";
-      interval = 5;
-      states = {
-        warning = 20;
-      };
-      format-time = "{H}h{M}m";
-      tooltip = true;
-      tooltip-format = "{time}";
-    };
-    "language" = {
-      tooltip = true;
-      tooltip-format = "Keyboard layout";
-      format = "<span foreground='#FABD2F'> </span> {}";
-      format-fr = "FR";
-      format-en = "US";
-      format-ca = "CA";
-      format-jp = "JP";
     };
   };
 }

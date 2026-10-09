@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./swaylock
     ./sway.nix
     ./python.nix
     ./alacritty.nix
@@ -14,7 +15,7 @@
     ./neovim/neovim.nix
     ./pcmanfm.nix
     ./rofi/rofi.nix
-    ./swaync/swaync.nix
+    ./swaync
     ./telegram.nix
     ./tree.nix
     ./waybar

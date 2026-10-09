@@ -1,0 +1,45 @@
+clock
+timestr=%I:%M %p
+datestr=%a %b %d
+
+font=HackMonoNerdFont
+image=~/Pictures/wallpapers/wallhaven-qrgqyq-edit-downscale.png
+#screenshots
+effect-blur=7x6
+#effect-vignette=0.75:0.75
+ignore-empty-password
+
+indicator
+indicator-radius=225
+indicator-thickness=18
+
+inside-color=#00000000
+inside-clear-color=#00000000
+inside-ver-color=#00000000
+inside-wrong-color=#00000000
+
+line-uses-inside
+line-color=#ffffff
+line-clear-color=#ffffff
+line-ver-color=#ffffff
+line-wrong-color=#ffffff
+
+text-clear=CLEARED
+text-ver=...
+text-wrong=TRY AGAIN
+
+text-color=#ffffff
+text-clear-color=#ffffff
+text-ver-color=#ffffff
+text-wrong-color=#ffffff
+text-caps-lock-color=#ffffff
+
+ring-color=#00000000
+ring-clear-color=#00000000
+ring-ver-color=#00000000
+ring-wrong-color=#00000000
+
+bs-hl-color=#ffffff
+key-hl-color=#ffffff
+
+separator-color=#ffffff00

@@ -1,142 +1,106 @@
 { ... }:
-let
-  custom = {
-    font = "Maple Mono";
-    font_size = "18px";
-    font_weight = "bold";
-    text_color = "#FEFEFE";
-    background_0 = "#1D2021";
-    background_1 = "#282828";
-    border_color = "#A89984";
-    red = "#CC241D";
-    green = "#98971A";
-    yellow = "#FABD2F";
-    blue = "#1666BF";
-    magenta = "#B16286";
-    cyan = "#00BBD3";
-    orange = "#D65D0E";
-    orange_bright = "#FE8019";
-    opacity = "1";
-    indicator_height = "2px";
-    transparent_opacity = "0.65";
-    white = "#f7f9f9";
-    black = "#212121";
-  };
-in
 {
-  programs.waybar.style = with custom; ''
-    * {
-      /* General taskbar font, I like maple mono ^-^*/
-      font-family: Maple Mono;
-      border-radius: 8;
-      font-size: 15px;
-      padding: 0px;
-      background: transparent;
-    }
+  programs.waybar = {
+    style = ''
+      @define-color font-color #e6e6e6;
+      @define-color black #0d0d0d;
+      @define-color grey #282828;
+      @define-color light-grey #424242;
+      @define-color red #ff0000;
 
-    window#waybar {
-      /* Linear gradients are used because it makes less harsh rounded border radius, gtk bug :p */
-      background-image: linear-gradient(to bottom, #141216 100%);
-      border-radius: 14px;
-      padding: 0px;
-      border-style: none;
-    }
+      * {
+        font-family: "Adwaita Sans", "Font Awesome";
+        font-size: 19px;
+      }
 
-    #battery,
-    #network,
-    #clock,
-    #language,
-    #custom-applauncher,
-    #tray,
-    #workspaces,
-    #pulseaudio {
-      background-image: linear-gradient(to bottom, #27232b 100%);
+      window#waybar { 
+        background-color: @black; 
+        color: @font-color;
+      }
 
-      margin: 6px;
-      margin-right: 0px;
-      padding: 4px 8px;
-      border-radius: 8px;
-      color: ${white};
+      tooltip {
+          border-radius: 0px;
+          border: none;
+      }
 
-      border-style: none;
-      transition-duration: 120ms;
-    }
+      #workspaces {
+          margin: 0px 4px 0px 0px;
+          padding: 0px 0px;
+      }
 
-    #clock {
-      margin-right: 6px;
-    }
+      #workspaces button {
+          transition: none;
+          background: transparent;
+          border: none;
+          padding: 0px 8px 0px 8px;
+          min-width: 12px;
+          color: @font-color;
+          border-radius: 0px;
+      }
 
-    #pulseaudio:hover {
-      background-image: linear-gradient(to bottom, #ac82e9 100%);
-      color: #141216;
-      transition-duration: 120ms;
-    }
+      #workspaces button.focused { 
+          background-color: @grey;
+          color: @font-color;
+          border-radius: 0px;
+      }
+      #workspaces button.urgent{
+          color: @red;
+      }
 
-    #custom-applauncher {
-      font-weight: bold;
-      transition-duration: 120ms;
-    }
-    #custom-applauncher:hover {
-      background-image: linear-gradient(to bottom, #ac82e9 100%);
-      color: #141216;
-      transition-duration: 120ms;
-    }
+      /*kys default hover effects*/
+      #workspaces button:hover {
+          box-shadow: inherit;
+          text-shadow: inherit;
+          transition: none;
+          border-radius: 0px;
+      }
 
-    #tray menu {
-      background-color: #141216;
-      color: #d8cab8;
-      padding: 4px;
-    }
-    #tray menu menuitem {
-      background-image: linear-gradient(to bottom, #27232b 100%);
+      #mode {
+          color: @red;
+          margin: 0px 4px 0px 4px;
+      }
 
-      margin: 3px;
-      color: #d8cab8;
-      border-radius: 4px;
-      border-style: solid;
-      border-color: #27232b;
-    }
-    #tray menu menuitem:hover {
-      background-image: linear-gradient(to bottom, #27232b 100%);
-      color: #ac82e9;
-      font-weight: bold;
-    }
+      #power-profiles-daemon, #network, #backlight,
+      #pulseaudio, #battery, #cpu, #memory,
+      #temperature {
+          margin: 0px 12px 0px 12px;
+      }
 
-    #workspaces button {
-      transition-duration: 100ms;
-      all: initial;
-      min-width: 0;
-      font-weight: bold;
-      color: #3d3d3d;
-      margin-right: 0.2cm;
-      margin-left: 0.2cm;
-    }
+      #clock.date {
+          margin: 0px 6px 0px 100px;
+      }
 
-    #workspaces button:hover {
-      transition-duration: 120ms;
-      color: ${white};
-    }
-    #workspaces button.focused {
-      color: ${white};
-      font-weight: bold;
-    }
-    #workspaces button.active {
-      color: ${white};
-      font-weight: bold;
-    }
-    #workspaces button.urgent {
-      color: ${white};
-    }
+      #clock.time {
+          margin: 0px 100px 0px 6px;
+      }
 
-    #battery {
-      background-color: #222222;
-      color: #1d2021;
-    }
-    #battery.warning,
-    #battery.critical,
-    #battery.urgent {
-      color: #1d2021;
-      background-color: #fc4649;
-    }
-  '';
+      #tray {
+          margin: 0px 4px;
+      }
+
+      #idle_inhibitor {
+          min-width: 25px;
+          padding: 0px 7px;
+      }
+
+      #scratchpad {
+        padding: 0px 4px;
+      }
+
+      #window {
+        padding: 0px 6px 0px 4px;
+      }
+
+      #power-profiles-daemon.performance {
+          color: #ff8c1a;
+      }
+      #power-profiles-daemon.power-saver {
+          color: #00ff00;
+      }
+
+      #battery.critical:not(.charging), #network.disconnected, #pulseaudio.muted, #temperature.critical {
+        color: @red;
+      }
+    '';
+  };
 }

@@ -13,6 +13,8 @@
   };
 
   environment.sessionVariables = {
+    WLR_RENDERER = "vulkan";
+
     NIXOS_OZONE_WL = "1";
     SWAY_UNSUPPORTED_GPU = "1";
 

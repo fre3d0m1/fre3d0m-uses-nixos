@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    python314
+    (python314.withPackages (ps: [
+      ps.requests
+    ]))
   ];
 }
