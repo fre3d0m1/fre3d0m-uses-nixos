@@ -24,6 +24,9 @@
     __GLX_VENDOR_LIBRARY_NAME = "nvidia";
 
     # Prevents crash/invisible cursor issues on NVIDIA
-    WLR_NO_HARDWARE_CURSORS = "1";
+    # WLR_NO_HARDWARE_CURSORS = "1";
+
+    XCURSOR_THEME = "catppuccin-mocha-dark-cursors";
+    XCURSOR_SIZE = "24";
   };
 }

@@ -1,16 +1,21 @@
-{ ... }:
+{ config, ... }:
+let
+  background = config.lib.stylix.colors.base00;
+  foreground = config.lib.stylix.colors.base05;
+  accent = config.lib.stylix.colors.base0D;
+in
 {
   programs.waybar = {
     style = ''
-      @define-color font-color #e6e6e6;
-      @define-color black #0d0d0d;
+      @define-color font-color #${foreground};
+      @define-color black #${background};
       @define-color grey #282828;
       @define-color light-grey #424242;
       @define-color red #ff0000;
 
       * {
-        font-family: "Adwaita Sans", "Font Awesome";
-        font-size: 19px;
+        font-family: "Maple Mono", "Font Awesome";
+        font-size: 16px;
       }
 
       window#waybar { 
@@ -24,6 +29,7 @@
       }
 
       #workspaces {
+          border: 2px solid @accent;
           margin: 0px 4px 0px 0px;
           padding: 0px 0px;
       }
@@ -35,13 +41,13 @@
           padding: 0px 8px 0px 8px;
           min-width: 12px;
           color: @font-color;
-          border-radius: 0px;
+          border-radius: 2px;
       }
 
       #workspaces button.focused { 
           background-color: @grey;
           color: @font-color;
-          border-radius: 0px;
+          border-radius: 2px;
       }
       #workspaces button.urgent{
           color: @red;
@@ -52,7 +58,7 @@
           box-shadow: inherit;
           text-shadow: inherit;
           transition: none;
-          border-radius: 0px;
+          border-radius: 2px;
       }
 
       #mode {
@@ -66,12 +72,18 @@
           margin: 0px 12px 0px 12px;
       }
 
+      #clockit {
+          border: 2px solid @accent;
+          padding: 0px 0px;
+          margin: 4px 0px;
+      }
+
       #clock.date {
-          margin: 0px 6px 0px 100px;
+          margin: 0px 6px 0px 0px;
       }
 
       #clock.time {
-          margin: 0px 100px 0px 6px;
+          margin: 0px 0px 0px 6px;
       }
 
       #tray {

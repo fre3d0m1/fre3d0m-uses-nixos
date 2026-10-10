@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./stylix.nix
     ./sway.nix
     ./bluetooth.nix
     ./bootloader.nix

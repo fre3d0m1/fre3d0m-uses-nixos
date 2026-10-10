@@ -1,5 +1,6 @@
 { pkgs, inputs, ... }:
 {
+
   wayland.windowManager.sway = {
     enable = true;
 
@@ -63,7 +64,7 @@
         { command = "swaync"; }
         { command = "swaymsg workspace 1"; }
         {
-          command = "swaybg -m fill -i /home/fre3d0m/Pictures/wallpapers/1293076.png";
+          command = "swaybg -m fill -i /home/fre3d0m/Pictures/wallpapers/frieren.png";
         }
         {
           command = ''
@@ -75,40 +76,46 @@
         }
       ];
 
-      colors = {
-        focused = {
-          border = "#3a7099";
-          background = "#2a536f";
-          text = "#e6e6e6";
-          indicator = "#3f7aa6";
-          childBorder = "#3f7aa6";
-        };
-        focusedInactive = {
-          border = "#4e4e4e";
-          background = "#3c3c3c";
-          text = "#e6e6e6";
-          indicator = "#242424";
-          childBorder = "#242424";
-        };
-        unfocused = {
-          border = "#242424";
-          background = "#1f1f1f";
-          text = "#e6e6e6";
-          indicator = "#242424";
-          childBorder = "#242424";
-        };
-        urgent = {
-          border = "#a82424";
-          background = "#7a1f1f";
-          text = "#e6e6e6";
-          indicator = "#a82424";
-          childBorder = "#a82424";
-        };
-      };
+      # colors = {
+      #   focused = {
+      #     border = "#6a5acd";
+      #     background = "#2a536f";
+      #     text = "#e6e6e6";
+      #     indicator = "#3f7aa6";
+      #     childBorder = "#6a5acd";
+      #   };
+      #   focusedInactive = {
+      #     border = "#4e4e4e";
+      #     background = "#3c3c3c";
+      #     text = "#e6e6e6";
+      #     indicator = "#242424";
+      #     childBorder = "#242424";
+      #   };
+      #   unfocused = {
+      #     border = "#242424";
+      #     background = "#1f1f1f";
+      #     text = "#e6e6e6";
+      #     indicator = "#242424";
+      #     childBorder = "#242424";
+      #   };
+      #   urgent = {
+      #     border = "#a82424";
+      #     background = "#7a1f1f";
+      #     text = "#e6e6e6";
+      #     indicator = "#a82424";
+      #     childBorder = "#a82424";
+      #   };
+      # };
 
-      window.border = 1;
+      window.border = 2;
       window.titlebar = false; # optional, depending on whether you want pixel borders
 
+      gaps = {
+        inner = 6;
+        outer = 4;
+        smartGaps = false;
+        smartBorders = "off";
+      };
     };
   };
 }

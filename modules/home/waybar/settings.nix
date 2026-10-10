@@ -1,6 +1,11 @@
 { pkgs, ... }:
 
 {
+  stylix.targets.waybar = {
+    enable = true;
+    colors.enable = true;
+  };
+
   programs.waybar = {
     settings = {
       mainBar = {
@@ -17,8 +22,7 @@
         ];
 
         modules-center = [
-          "clock#date"
-          "clock#time"
+          "group/clockit"
         ];
 
         modules-right = [
@@ -33,6 +37,14 @@
           "battery"
           "idle_inhibitor"
         ];
+
+        "group/clockit" = {
+          orientation = "horizontal";
+          modules = [
+            "clock#date"
+            "clock#time"
+          ];
+        };
 
         "sway/workspaces" = {
           disable-scroll = true;

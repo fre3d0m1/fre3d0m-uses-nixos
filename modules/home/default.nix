@@ -1,6 +1,7 @@
 { ... }:
 {
   imports = [
+    ./gtk.nix
     ./swaylock
     ./sway.nix
     ./python.nix
@@ -24,7 +25,6 @@
     ./nemo.nix
     ./amberol.nix
     ./prismlauncher.nix
-    ./gtk.nix
     ./vesktop.nix
     ./art.nix
     ./libreoffice.nix

@@ -7,13 +7,19 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
-    { nixpkgs, ... }@inputs:
+    { nixpkgs, stylix, ... }@inputs:
     {
       nixosConfigurations = {
         desktop-fast = nixpkgs.lib.nixosSystem {
           modules = [
+            stylix.nixosModules.stylix
             ./hosts/desktop-fast
           ];
           specialArgs = {
@@ -22,6 +28,7 @@
         };
         desktop = nixpkgs.lib.nixosSystem {
           modules = [
+            stylix.nixosModules.stylix
             ./hosts/desktop
           ];
           specialArgs = {
@@ -30,6 +37,7 @@
         };
         laptop = nixpkgs.lib.nixosSystem {
           modules = [
+            stylix.nixosModules.stylix
             ./hosts/laptop
           ];
           specialArgs = {
@@ -38,6 +46,7 @@
         };
         vm = nixpkgs.lib.nixosSystem {
           modules = [
+            stylix.nixosModules.stylix
             ./hosts/vm
           ];
           specialArgs = {
