@@ -27,6 +27,8 @@
 
         "Mod4+c" = "kill";
 
+        "Mod4+e" = "exec nemo";
+
         "Mod4+Shift+t" = "exec swaymsg output DP-1 hdr toggle";
 
         "Mod4+1" = "workspace number 1";
@@ -40,6 +42,18 @@
         "Mod4+9" = "workspace number 9";
         "Mod4+0" = "workspace number 10";
 
+        # --- Audio Controls ---
+        "XF86AudioRaiseVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+        "XF86AudioLowerVolume" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "XF86AudioMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        "XF86AudioMicMute" = "exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle";
+
+        # Optional fallback shortcuts if your keyboard lacks media keys:
+        "Mod4+Prior" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+        "Mod4+Next" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "Mod4+m" = "exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+        # ----------------------
+
         "Mod4+Shift+1" = "move container to workspace number 1";
         "Mod4+Shift+2" = "move container to workspace number 2";
         "Mod4+Shift+3" = "move container to workspace number 3";
@@ -52,9 +66,10 @@
 
         "Mod4+Shift+space" = "floating toggle";
 
-        "Print" = "exec grim /home/fre3d0m/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png";
+        "Print" =
+          "exec grim /home/fre3d0m/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy --type image/png";
         "Mod4+Shift+Print" =
-          "exec grim -g \"$(slurp)\" /home/fre3d0m/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png";
+          "exec grim -g \"$(slurp)\" /home/fre3d0m/Pictures/screenshot_$(date +'%Y-%m-%d_%H-%M-%S').png | wl-copy --type image/png";
       };
 
       bars = [ ];
@@ -75,6 +90,23 @@
           '';
         }
       ];
+
+      window = {
+        commands = [
+          {
+            command = "floating enable, sticky enable";
+            criteria = {
+              title = "^Picture-in-Picture$";
+            };
+          }
+          {
+            command = "floating enable";
+            criteria = {
+              class = "^Special Agent: Rogue$";
+            };
+          }
+        ];
+      };
 
       # colors = {
       #   focused = {
